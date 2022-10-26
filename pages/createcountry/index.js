@@ -58,7 +58,6 @@ const CreateCountry = () => {
                 />
                 <button type="submit">Send</button>
             </form>
-            <section>{JSON.stringify(country)}</section>
             {error && <div>{error}</div>}
         </div>
     )

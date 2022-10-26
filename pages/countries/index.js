@@ -26,7 +26,7 @@ const Countries = () => {
     // trigger henting av data når komponenten lages
     useEffect(() => {
         getCountries()
-    }, [])
+    }, [countries])
 
     return (
         <div>
@@ -39,7 +39,7 @@ const Countries = () => {
                     <li key={index}>{country.name}</li>
                 ))}
             </ul>
-            <section>{JSON.stringify(countries)}</section>
+
             <CreateCountry />
         </div>
     )
