@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import CreateCountry from '../createcountry'
 
 const Countries = () => {
     const [countries, setCountries] = useState([])
@@ -32,8 +33,9 @@ const Countries = () => {
             <Head>
                 <title>Countries</title>
             </Head>
-            <h1>Contries</h1>
+            <h1>List of countries</h1>
             <section>{JSON.stringify(countries)}</section>
+            <CreateCountry />
         </div>
     )
 }
