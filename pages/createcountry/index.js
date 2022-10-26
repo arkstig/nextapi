@@ -35,7 +35,7 @@ const CreateCountry = () => {
     const handleSubmit = async (event) => {
         // forhindre default adferd
         event.preventDefault()
-
+        setName('')
         // trigge funksjonen som sender data til API
         await createCountry()
     }
