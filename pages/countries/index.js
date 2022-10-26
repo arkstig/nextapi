@@ -34,6 +34,11 @@ const Countries = () => {
                 <title>Countries</title>
             </Head>
             <h1>List of countries</h1>
+            <ul>
+                {countries.map((country, index) => (
+                    <li key={index}>{country.name}</li>
+                ))}
+            </ul>
             <section>{JSON.stringify(countries)}</section>
             <CreateCountry />
         </div>

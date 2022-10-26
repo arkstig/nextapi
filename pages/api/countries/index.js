@@ -21,7 +21,7 @@ export default function handler(req, res) {
             // sender med feilmelding som vi kan bruke (error: ...)
             res.status(400).json({
                 success: false,
-                error: 'Fyll ut navnet på et land',
+                error: 'Ops, noe gikk galt: Du må skrive inn navnet på et land!',
             })
         } else {
             // legger til data i quiz listen vår

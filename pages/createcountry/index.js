@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import axios from 'axios'
+import { setLazyProp } from 'next/dist/server/api-utils'
 
 const CreateCountry = () => {
     const [country, setCountry] = useState([])
@@ -22,6 +23,7 @@ const CreateCountry = () => {
 
             if (response?.data?.success) {
                 setCountry(response.data.data)
+                setError(null)
             }
         } catch (err) {
             // hvis feil oppdatere error staten
@@ -35,31 +37,29 @@ const CreateCountry = () => {
     const handleSubmit = async (event) => {
         // forhindre default adferd
         event.preventDefault()
+
         // trigge funksjonen som sender data til API
         await createCountry()
     }
 
     // Hvis feil gi beskjed om dette til brukeren
     // Vi skal håndtere denne bedre i fremtidig leksjoner
-    if (error) {
-        return <p>Noe gikk galt: {error}</p>
-    }
 
     return (
         <div>
-            <h1>Legg til Land </h1>
             <form style={{ marginBottom: '2rem' }} onSubmit={handleSubmit}>
-                <label htmlFor="question">Legg til nytt land</label>
+                <label htmlFor="countries">Legg til nytt land</label>
                 <input
-                    id="question"
+                    id="country"
                     type="text"
-                    name="question"
+                    name="contry"
                     value={name}
                     onChange={handleNameChange}
                 />
                 <button type="submit">Send</button>
             </form>
             <section>{JSON.stringify(country)}</section>
+            {error && <div>{error}</div>}
         </div>
     )
 }
